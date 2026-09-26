@@ -1,38 +1,55 @@
-import java.util.*;
+﻿import java.util.*;
 
 /**
  * CampusGraph.java
- * Models the university campus as an undirected graph using an adjacency
- * list. Locations are vertices; roads/paths are edges.
- * Requirements #7, #8, #9, #10, #11.
+ *
+ * Models the university campus as an undirected graph using an
+ * adjacency list. Each campus location is a vertex, and each road
+ * or walking path between two locations is an edge.
+ *
+ * This class satisfies Requirements #7, #8, #9, #10, and #11 —
+ * adding/removing locations, adding/removing connections between
+ * them, and traversing the network using BFS and DFS.
  */
 public class CampusGraph {
 
-    // Adjacency list: location name -> set of connected location names
+    // Maps each location name to the set of locations it's directly connected to
     private Map<String, LinkedHashSet<String>> adjList;
 
+    /** Creates an empty campus graph with no locations yet. */
     public CampusGraph() {
         adjList = new LinkedHashMap<>();
     }
 
-    /** Adds a new campus location (vertex). Returns false if it already exists. */
+    /**
+     * Adds a new campus location (vertex) to the graph.
+     * Returns false if the location already exists, so duplicates
+     * aren't accidentally created.
+     */
     public boolean addLocation(String location) {
         if (adjList.containsKey(location)) return false;
         adjList.put(location, new LinkedHashSet<>());
         return true;
     }
 
-    /** Removes a location and any connections referencing it. Returns false if it doesn't exist. */
+    /**
+     * Removes a location from the graph, along with any connections
+     * other locations had to it (so no dangling references remain).
+     * Returns false if the location doesn't exist.
+     */
     public boolean removeLocation(String location) {
         if (!adjList.containsKey(location)) return false;
         adjList.remove(location);
         for (Set<String> neighbours : adjList.values()) {
-            neighbours.remove(location);
+            neighbours.remove(location); // clean up references from other locations
         }
         return true;
     }
 
-    /** Adds an undirected connection/road between two locations. */
+    /**
+     * Adds an undirected road/path between two locations, meaning
+     * you can walk from either one to the other.
+     */
     public boolean addConnection(String from, String to) {
         if (!adjList.containsKey(from) || !adjList.containsKey(to)) {
             return false; // one or both locations don't exist
@@ -42,7 +59,7 @@ public class CampusGraph {
         return true;
     }
 
-    /** Removes the connection/road between two locations. */
+    /** Removes the road/path connecting two locations, if one exists. */
     public boolean removeConnection(String from, String to) {
         if (!adjList.containsKey(from) || !adjList.containsKey(to)) {
             return false;
@@ -52,7 +69,7 @@ public class CampusGraph {
         return true;
     }
 
-    /** Displays every location and its direct connections. */
+    /** Prints every location on campus along with its direct connections. */
     public void displayConnections() {
         if (adjList.isEmpty()) {
             System.out.println("No campus locations added yet.");
@@ -64,7 +81,11 @@ public class CampusGraph {
         }
     }
 
-    /** Breadth-First Search traversal starting from a given location. */
+    /**
+     * Performs a Breadth-First Search starting from the given location,
+     * visiting nearby locations first before moving further out —
+     * useful for finding the shortest path in terms of number of stops.
+     */
     public void bfs(String start) {
         if (!adjList.containsKey(start)) {
             System.out.println("Location not found: " + start);
@@ -89,7 +110,10 @@ public class CampusGraph {
         System.out.println();
     }
 
-    /** Depth-First Search traversal starting from a given location. */
+    /**
+     * Performs a Depth-First Search starting from the given location,
+     * fully exploring one path before backtracking to try another.
+     */
     public void dfs(String start) {
         if (!adjList.containsKey(start)) {
             System.out.println("Location not found: " + start);
@@ -101,6 +125,7 @@ public class CampusGraph {
         System.out.println();
     }
 
+    /** Helper method that recursively visits each unvisited neighbour. */
     private void dfsRec(String current, Set<String> visited) {
         visited.add(current);
         System.out.print(current + " ");
@@ -111,7 +136,13 @@ public class CampusGraph {
         }
     }
 
+    /** Returns true if the given location exists in the graph. */
     public boolean hasLocation(String location) {
         return adjList.containsKey(location);
+    }
+
+    /** Returns the total number of locations currently in the campus graph. */
+    public int getLocationCount() {
+        return adjList.size();
     }
 }
