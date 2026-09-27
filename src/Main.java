@@ -1,12 +1,5 @@
 import java.util.Scanner;
 
-/**
- * Main.java
- * Menu-driven console interface for the University Student Record and
- * Campus Route Management System. Wires the linked list, stack, queue,
- * BST, hash table, and graph together so every student-record action
- * stays consistent across structures.
- */
 public class Main {
 
     private static Scanner sc = new Scanner(System.in);
@@ -20,30 +13,68 @@ public class Main {
 
     public static void main(String[] args) {
         boolean running = true;
+
         while (running) {
             printMenu();
             int choice = readInt("Enter your choice: ");
+
             switch (choice) {
-                case 1 -> addStudent();
-                case 2 -> updateStudent();
-                case 3 -> deleteStudent();
-                case 4 -> studentList.displayAll();
-                case 5 -> addServiceRequest();
-                case 6 -> processNextRequest();
-                case 7 -> history.displayHistory();
-                case 8 -> bst.displayInOrder();
-                case 9 -> searchByHashing();
-                case 10 -> addLocation();
-                case 11 -> removeLocation();
-                case 12 -> addConnection();
-                case 13 -> removeConnection();
-                case 14 -> campus.displayConnections();
-                case 15 -> traverseCampus();
-                case 16 -> { running = false; System.out.println("Exiting. Goodbye!"); }
-                default -> System.out.println("Invalid choice. Please select 1-16.");
+                case 1:
+                    addStudent();
+                    break;
+                case 2:
+                    updateStudent();
+                    break;
+                case 3:
+                    deleteStudent();
+                    break;
+                case 4:
+                    studentList.displayAll();
+                    break;
+                case 5:
+                    addServiceRequest();
+                    break;
+                case 6:
+                    processNextRequest();
+                    break;
+                case 7:
+                    history.displayHistory();
+                    break;
+                case 8:
+                    bst.displayInOrder();
+                    break;
+                case 9:
+                    searchByHashing();
+                    break;
+                case 10:
+                    addLocation();
+                    break;
+                case 11:
+                    removeLocation();
+                    break;
+                case 12:
+                    addConnection();
+                    break;
+                case 13:
+                    removeConnection();
+                    break;
+                case 14:
+                    campus.displayConnections();
+                    break;
+                case 15:
+                    traverseCampus();
+                    break;
+                case 16:
+                    running = false;
+                    System.out.println("Exiting. Goodbye!");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please select 1-16.");
+                    break;
             }
             System.out.println();
         }
+
         sc.close();
     }
 
@@ -66,8 +97,6 @@ public class Main {
         System.out.println("15. Traverse Campus Locations (BFS/DFS)");
         System.out.println("16. Exit");
     }
-
-    // ---------------- Student record operations ----------------
 
     private static void addStudent() {
         String id = readNonEmpty("Enter Student ID: ");
@@ -99,8 +128,6 @@ public class Main {
         double marks = readMarks("Enter new Marks (0-100): ");
 
         studentList.update(id, name, programme, marks);
-        // BST/hash table entries reference the same Student object, so their
-        // fields are already updated in place - no re-insert needed.
         history.push("Updated: " + id + " - " + name);
         System.out.println("Student updated successfully.");
     }
@@ -128,8 +155,6 @@ public class Main {
         }
     }
 
-    // ---------------- Queue operations ----------------
-
     private static void addServiceRequest() {
         String id = readNonEmpty("Enter Student ID for the request: ");
         String type = readNonEmpty("Enter request type (e.g., Transcript, ID Card): ");
@@ -146,8 +171,6 @@ public class Main {
             history.push("Processed request: " + next);
         }
     }
-
-    // ---------------- Graph operations ----------------
 
     private static void addLocation() {
         String location = readNonEmpty("Enter new campus location name: ");
@@ -199,8 +222,6 @@ public class Main {
         }
     }
 
-    // ---------------- Input validation helpers ----------------
-
     private static int readInt(String prompt) {
         while (true) {
             System.out.print(prompt);
@@ -234,7 +255,9 @@ public class Main {
         while (true) {
             System.out.print(prompt);
             String input = sc.nextLine().trim();
-            if (!input.isEmpty()) return input;
+            if (!input.isEmpty()) {
+                return input;
+            }
             System.out.println("Input cannot be empty. Please try again.");
         }
     }

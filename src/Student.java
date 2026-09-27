@@ -1,8 +1,3 @@
-/**
- * Student.java
- * Represents a single student record used across all data structures
- * (linked list, BST, hash table).
- */
 public class Student {
     private String studentId;
     private String name;
@@ -16,20 +11,35 @@ public class Student {
         this.marks = marks;
     }
 
-    // ---------- Getters ----------
-    public String getStudentId() { return studentId; }
-    public String getName() { return name; }
-    public String getProgramme() { return programme; }
-    public double getMarks() { return marks; }
+    public String getStudentId() {
+        return studentId;
+    }
 
-    // ---------- Setters (used for update operation) ----------
-    public void setName(String name) { this.name = name; }
-    public void setProgramme(String programme) { this.programme = programme; }
-    public void setMarks(double marks) { this.marks = marks; }
+    public String getName() {
+        return name;
+    }
 
-    @Override
+    public String getProgramme() {
+        return programme;
+    }
+
+    public double getMarks() {
+        return marks;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setProgramme(String programme) {
+        this.programme = programme;
+    }
+
+    public void setMarks(double marks) {
+        this.marks = marks;
+    }
+
     public String toString() {
-        return String.format("ID: %-8s | Name: %-15s | Programme: %-20s | Marks: %.2f",
-                studentId, name, programme, marks);
+        return "ID: " + studentId + " | Name: " + name + " | Programme: " + programme + " | Marks: " + marks;
     }
 }

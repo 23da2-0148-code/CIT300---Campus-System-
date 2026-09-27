@@ -1,14 +1,12 @@
-/**
- * StudentHashTable.java
- * A custom hash table (separate chaining) keyed on Student ID for
- * efficient O(1) average-case search. Requirement #6.
- */
 public class StudentHashTable {
 
-    private static class Node {
+    private class Node {
         Student data;
         Node next;
-        Node(Student data) { this.data = data; }
+
+        Node(Student data) {
+            this.data = data;
+        }
     }
 
     private Node[] buckets;
@@ -16,55 +14,58 @@ public class StudentHashTable {
     private int size;
 
     public StudentHashTable() {
-        this(16); // default number of buckets
+        capacity = 16;
+        buckets = new Node[capacity];
     }
 
-    public StudentHashTable(int capacity) {
-        this.capacity = capacity;
-        this.buckets = new Node[capacity];
-    }
-
-    /** Simple hash function based on the character codes of the Student ID. */
     private int hash(String studentId) {
         int hash = 0;
-        for (char c : studentId.toCharArray()) {
-            hash = (hash * 31 + c) % capacity;
+        for (int i = 0; i < studentId.length(); i++) {
+            hash = hash * 31 + studentId.charAt(i);
         }
-        return Math.abs(hash);
+        hash = hash % capacity;
+        if (hash < 0) {
+            hash = hash * -1;
+        }
+        return hash;
     }
 
-    /** Inserts a student into the hash table (chained on collision). */
     public void insert(Student student) {
         int index = hash(student.getStudentId());
         Node newNode = new Node(student);
+
         if (buckets[index] == null) {
             buckets[index] = newNode;
         } else {
             Node current = buckets[index];
-            while (current.next != null) current = current.next;
+            while (current.next != null) {
+                current = current.next;
+            }
             current.next = newNode;
         }
+
         size++;
     }
 
-    /** Searches for a student by ID. Returns null if not found. */
     public Student search(String studentId) {
         int index = hash(studentId);
         Node current = buckets[index];
+
         while (current != null) {
             if (current.data.getStudentId().equalsIgnoreCase(studentId)) {
                 return current.data;
             }
             current = current.next;
         }
+
         return null;
     }
 
-    /** Removes a student by ID from the hash table. */
     public boolean delete(String studentId) {
         int index = hash(studentId);
         Node current = buckets[index];
         Node previous = null;
+
         while (current != null) {
             if (current.data.getStudentId().equalsIgnoreCase(studentId)) {
                 if (previous == null) {
@@ -78,8 +79,11 @@ public class StudentHashTable {
             previous = current;
             current = current.next;
         }
+
         return false;
     }
 
-    public int size() { return size; }
+    public int size() {
+        return size;
+    }
 }
