@@ -58,4 +58,4 @@ java Main
 
 ## Technologies used
 - **Language**: Java
--**IDE**: VS code
+- **IDE**: VS code
