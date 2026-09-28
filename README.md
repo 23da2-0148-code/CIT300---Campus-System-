@@ -3,14 +3,11 @@
 ## Group Members
 | Name | Student ID | Responsibility | Individual Contribution |
 |------|-----------|-----------------|--------------------------|
-| _Fill in_ | _Fill in_ | Linked list + student-record management | _Fill in_ |
-| _Fill in_ | _Fill in_ | Stack + queue implementation | _Fill in_ |
-| _Fill in_ | _Fill in_ | BST + hashing | _Fill in_ |
-| _Fill in_ | _Fill in_ | Graph + BFS/DFS | _Fill in_ |
+| J.P.A.J.Patabadige | 23DA2-0148 | Menu Integration Student data management | Developed Main.java menu-driven interface, input validation, menu options integration, and final project testing/debugging. |
+| M.R.K.Mapatuna | 23DA2-0339 | Tree & Hashing Search | Implemented StudentBST.java for binary search operations and StudentHashTable.java for O(1) student ID lookups. |
+| M.K.B.Sampath | 23DA2-0183 | Action Stack & Campus Graph | Implemented ActionStack.java for undo/recent action history and CampusGraph.java with adjacency list, location connections, and BFS/DFS traversal. |
+| A.V.T.S.Wickramarathne | 23DA2-0425 | Linked List & Service Queue | Implemented StudentLinkedList.java (add, update, delete operations) and ServiceQueue.java for managing student service requests. |
 
-> Replace the placeholders above before submission. The assignment brief
-> requires every member's name, student ID, assigned responsibility, and
-> individual contribution to be recorded correctly.
 
 ## How to Compile and Run
 
