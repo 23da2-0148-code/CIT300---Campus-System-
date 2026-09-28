@@ -1,9 +1,12 @@
 # CIT300 - University Student Record and Campus Route Management System
 
+## Project Overview
+A Java console application developed for CIT300 - Data Structures and Algorithms. The system manages university student records and campus route navigation using Linked Lists, Stacks, Queues, Trees, Hashing, and Graphs.
+
 ## Group Members
 | Name | Student ID | Responsibility | Individual Contribution |
 |------|-----------|-----------------|--------------------------|
-| J.P.A.J.Patabadige | 23DA2-0148 | Menu Integration Student data management | Developed Main.java menu-driven interface, input validation, menu options integration, and final project testing/debugging. |
+| J.P.A.J.Patabadige | 23DA2-0148 | Menu Integration Student data management | Developed Main.java menu driven interface, input validation, menu options integration, and final project testing/debugging. |
 | M.R.K.Mapatuna | 23DA2-0339 | Tree & Hashing Search | Implemented StudentBST.java for binary search operations and StudentHashTable.java for O(1) student ID lookups. |
 | M.K.B.Sampath | 23DA2-0183 | Action Stack & Campus Graph | Implemented ActionStack.java for undo/recent action history and CampusGraph.java with adjacency list, location connections, and BFS/DFS traversal. |
 | A.V.T.S.Wickramarathne | 23DA2-0425 | Linked List & Service Queue | Implemented StudentLinkedList.java (add, update, delete operations) and ServiceQueue.java for managing student service requests. |
@@ -19,13 +22,13 @@ java Main
 
 ## Project Structure
 - `Student.java` — student record model
-- `StudentLinkedList.java` — Requirement 2: linked list storage
-- `ActionStack.java` — Requirement 3: recent-actions / undo history
-- `ServiceQueue.java` — Requirement 4: FIFO service requests
-- `StudentBST.java` — Requirement 5: BST keyed on Student ID
-- `StudentHashTable.java` — Requirement 6: hashing for fast ID search
-- `CampusGraph.java` — Requirements 7–11: graph (adjacency list), BFS/DFS
-- `Main.java` — menu-driven console interface (Requirements 12–14)
+- `StudentLinkedList.java` — linked list storage
+- `ActionStack.java` — recent-actions / undo history
+- `ServiceQueue.java` — FIFO service requests
+- `StudentBST.java` — BST keyed on Student ID
+- `StudentHashTable.java` — hashing for fast ID search
+- `CampusGraph.java` — graph (adjacency list), BFS/DFS
+- `Main.java` — menu driven console interface
 
 ## Requirement Coverage Checklist
 - [x] Student records: ID, Name, Programme, Marks
@@ -42,11 +45,5 @@ java Main
 - [x] Menu-driven interface with input validation
 - [x] Handling of invalid input, duplicates, missing records
 
-## Still To Do
-- [ ] Test every menu option end-to-end
-- [ ] Fill in group member details above
-- [ ] Add more edge-case handling if your team wants extra robustness
-- [ ] Set up GitHub repo with branches/commits per member
-- [ ] Record demo video (< 15 minutes, all faces visible)
-- [ ] Submit via LMS before 29th September, with Google Drive Editor
-      access given to asanka.r@sltc.ac.lk and kaushika.w@sltc.ac.lk if using Drive
+## Screenshots
+
