@@ -47,8 +47,11 @@ java Main
 
 ## Screenshots
 
+System Menu Screenshot
 ![System Menu Screenshot](<Screenshot 2026-09-29 011608.png>)
 
+Add Student in system Screenshot
 ![Add Student in system](<Screenshot 2026-09-29 011935.png>)
 
+Traverse Campus Locations Screenshot
 ![Traverse Campus Locations](<Screenshot 2026-09-29 012817.png>)
