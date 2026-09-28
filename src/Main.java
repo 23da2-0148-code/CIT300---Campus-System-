@@ -79,7 +79,7 @@ public class Main {
     }
 
     private static void printMenu() {
-        System.out.println("========== University Student Record & Campus Route System ==========");
+        System.out.println("== University Student Record & Campus Route System ==");
         System.out.println(" 1. Add Student Record");
         System.out.println(" 2. Update Student Record");
         System.out.println(" 3. Delete Student Record");
